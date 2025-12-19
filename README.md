@@ -1,8 +1,9 @@
-# to run
-1. sudo apt install dosbox
-2. enter dosbox and run
+# Just Play MineSweeper
+* `git clone https://github.com/NethanWin/assembly-minesweeper.git`
+* `sudo apt install dosbox`
+* Open dosbox and run:
 ```
-mount c /path/to/MINE2.EXE
+mount c /<path-to-git>/assembly-code/
 MINE2.EXE
 ```
 
@@ -11,20 +12,27 @@ and add/change:
 `autolock=false`
 
 
-# compile yourself:
-1. git clone 'https://github.com/slyg3nius/CS-TASM-x86.git'
-2. edit ~/.dosbox/dosbox-0.74-3.conf
-```
+# Compile Yourself
+* `git clone https://github.com/NethanWin/assembly-minesweeper.git`
+* `cd assembly-minesweeper`
+* `git clone 'https://github.com/slyg3nius/CS-TASM-x86.git'`
+* open DosBox once
+* `cp assembly-code/* CS-TASK-x86/`
+* Add the folowing lines to the file `~/.dosbox/dosbox-0.74-3.conf`:
+```bash
+echo EOF
 @ECHO OFF
-MOUNT C ~/CS-TASM-x86/
+MOUNT C $PWD/CS-TASM-x86/
 c:
 UTILS\init.BAT
+EOF >> ~/.dosbox/dosbox-0.74-3.conf
 ```
-3. then run the folowing lines:
+
+* Open DosBox and Compile the assembly code:
 ```
+``
 tasm /zi mine2.asm
 tlink /v MINE2.OBJ
+``
 ```
-4. just run `MINE2.EXE` to start :)
-
-
+* and just run `MINE2.EXE` to start :)
